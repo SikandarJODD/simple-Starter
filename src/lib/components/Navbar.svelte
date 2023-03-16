@@ -12,6 +12,10 @@
       link: "/projects",
     },
     {
+      name: "Upload",
+      link: "/upload",
+    },
+    {
       name: "About Us",
       link: "/about",
     },
@@ -68,7 +72,7 @@
     </div>
     <!-- svelte-ignore a11y-missing-attribute -->
     <a
-      class="btn btn-ghost normal-case text-xl bg-base-200 md:bg-slate-700  md:text-2xl font-bold text-yellow-500"
+      class="btn btn-ghost normal-case text-xl bg-base-200 md:bg-slate-700  md:text-2xl font-bold text-sky-500"
       >Pro - Stud</a
     >
   </div>

@@ -28,9 +28,8 @@
       <p
         class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s"
       >
-        Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-        taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi
-        pug.
+        Creating a community of students to showcase their projects and get the
+        best feedback from the quality minds.
       </p>
       <div class="flex mt-6 justify-center">
         <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex" />
