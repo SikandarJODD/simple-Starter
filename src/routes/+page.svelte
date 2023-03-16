@@ -1,8 +1,6 @@
 <script>
-  import PageConnect from "../components/MainPage/PageConnect.svelte";
-  import PageHero from "../components/MainPage/PageHero.svelte";
-
-  let i = 0;
+  import PageConnect from "$lib/components/MainPage/PageConnect.svelte";
+  import PageHero from "$lib/components/MainPage/PageHero.svelte";
 </script>
 
 <main>

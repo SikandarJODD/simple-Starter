@@ -1,3 +1,7 @@
+<script>
+  import ProjectHero from "$lib/components/Projects/ProjectHero.svelte";
+</script>
+
 <main>
-  <h1>Product Page</h1>
+  <ProjectHero />
 </main>

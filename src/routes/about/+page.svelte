@@ -1,3 +1,7 @@
+<script>
+  import AboutHero from "$lib/components/AboutPage/AboutHero.svelte";
+</script>
+
 <main>
-  <h1>About Page</h1>
+  <AboutHero />
 </main>

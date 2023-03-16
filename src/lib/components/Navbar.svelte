@@ -22,10 +22,10 @@
 
 <svelte:window bind:scrollY={lenheight} />
 <div
-  class="navbar sticky top-0 rounded-md w-[90%] transition-all duration-300  m-auto {Math.floor(
+  class=" z-10 navbar sticky top-0 rounded-md w-[90%] transition-all duration-300  m-auto {Math.floor(
     lenheight
   ) > 120
-    ? '  backdrop-blur-md bg-[#0095ff96] md:w-[60%]  top-3 transition-all duration-200'
+    ? '  backdrop-blur-md bg-[#129afbab] border-2 border-gray-900 md:w-[60%]  top-3 transition-all duration-200'
     : ''}  "
 >
   <div class="navbar-start">
@@ -91,6 +91,9 @@
 
 <style>
   .act {
-    color: #fbbf24;
+    color: hsl(224, 96%, 22%);
+    border: 2px solid #03256e;
+    background: #0131531e;
+    margin: 0 10px;
   }
 </style>

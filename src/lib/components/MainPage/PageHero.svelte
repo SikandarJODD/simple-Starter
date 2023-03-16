@@ -13,7 +13,9 @@
   changeTale();
 </script>
 
-<div class="bg-sky-100 pb-6 sm:pb-8 lg:pb-12 md:px-20  ">
+<div
+  class="from-slate-100 via-green-200 to-sky-300 bg-gradient-to-b md:bg-gradient-to-r py-5 pb-6 sm:pb-8 lg:pb-12 md:px-20  "
+>
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8 md:py-4">
     <section
       class="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row"
@@ -23,7 +25,7 @@
         class="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24"
       >
         <h1
-          class="text-sky-600 mb-8 text-3xl font-bold sm:text-5xl md:mb-12 md:text-6xl"
+          class="text-[#035edd] txt-shadow mb-8 text-4xl text-center md:text-left  font-bold sm:text-5xl md:mb-12 md:text-6xl"
         >
           Create
           {#key i}
@@ -43,13 +45,13 @@
         >
           <a
             href="/upload"
-            class="inline-block rounded-lg bg-sky-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-sky-600 focus-visible:ring active:bg-sky-700 md:text-base"
+            class="inline-block rounded-lg bg-[#035edd] px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-sky-600 focus-visible:ring active:bg-sky-700 md:text-base"
             >Upload</a
           >
 
           <a
             href="/projects"
-            class="inline-block rounded-lg border-2 border-sky-700 bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
+            class="inline-block rounded-lg border-2 border-[#035edd] bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base"
             >Projects</a
           >
         </div>
@@ -58,7 +60,7 @@
 
       <!-- image - start -->
       <div
-        class="h-48 overflow-hidden rounded-lg bg-transparent shadow-lg  lg:h-3/6 xl:h-3/4 xl:w-1/3"
+        class="h-48 overflow-hidden rounded-lg bg-transparent shadow-lg shadow-slate-500 md:shadow-slate-500  lg:h-3/6 xl:h-3/4 xl:w-1/3"
       >
         <!-- svelte-ignore a11y-img-redundant-alt -->
         <img
