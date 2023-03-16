@@ -5,3 +5,9 @@
 
 <Navbar />
 <slot />
+
+<style>
+  /* :global(main) {
+    padding: 0px 10%;
+  } */
+</style>

@@ -1,13 +1,14 @@
 <script>
+  import PageConnect from "../components/MainPage/PageConnect.svelte";
+  import PageHero from "../components/MainPage/PageHero.svelte";
+
   let i = 0;
 </script>
 
 <main>
-  <h1 class="text-4xl font-bold">Working on Random Stuff</h1>
+  <PageHero />
+  <PageConnect />
 </main>
 
-<style lang="postcss">
-  :global(html) {
-    background-color: theme(colors.gray.100);
-  }
-</style>
+<!-- <style lang="postcss"> -->
+<!-- </style> -->

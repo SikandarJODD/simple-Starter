@@ -1,4 +1,33 @@
-<div class="navbar bg-base-200 sticky top-0  ">
+<script>
+  import { page } from "$app/stores";
+  $: routeId = $page.route.id;
+
+  let navs = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "Projects",
+      link: "/projects",
+    },
+    {
+      name: "About Us",
+      link: "/about",
+    },
+  ];
+  $: lenheight = 0;
+  // $: console.log(lenheight);
+</script>
+
+<svelte:window bind:scrollY={lenheight} />
+<div
+  class="navbar sticky top-0 rounded-md w-[90%] transition-all duration-300  m-auto {Math.floor(
+    lenheight
+  ) > 120
+    ? '  backdrop-blur-md bg-[#0095ff96] md:w-[60%]  top-3 transition-all duration-200'
+    : ''}  "
+>
   <div class="navbar-start">
     <div class="dropdown">
       <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -23,71 +52,45 @@
         tabindex="0"
         class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
       >
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <li><a>Item 1</a></li>
-        <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-        <li tabindex="0">
-          <!-- svelte-ignore a11y-missing-attribute -->
-          <a class="justify-between">
-            Parent
-            <svg
-              class="fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              ><path
-                d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-              /></svg
+        <!-- Phone View  -->
+        {#each navs as nav}
+          <li>
+            <a
+              href={nav.link}
+              class=" {Math.floor(lenheight) > 150
+                ? '  text-black transition-all duration-150'
+                : ''} "
+              class:act={routeId === nav.link}>{nav.name}</a
             >
-          </a>
-          <ul class="p-2">
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a>Submenu 1</a></li>
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <li><a>Item 3</a></li>
+          </li>
+        {/each}
       </ul>
     </div>
     <!-- svelte-ignore a11y-missing-attribute -->
-    <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <a
+      class="btn btn-ghost normal-case text-xl bg-base-200 md:bg-slate-700  md:text-2xl font-bold text-yellow-500"
+      >Pro - Stud</a
+    >
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <li><a>Item 1</a></li>
-      <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-      <li tabindex="0">
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <a>
-          Parent
-          <svg
-            class="fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            ><path
-              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
-            /></svg
+      {#each navs as nav}
+        <li>
+          <a
+            href={nav.link}
+            class="btn btn-ghost {Math.floor(lenheight) > 150
+              ? '  text-black transition-all duration-150'
+              : ''} "
+            class:act={routeId === nav.link}>{nav.name}</a
           >
-        </a>
-        <ul class="p-2">
-          <!-- svelte-ignore a11y-missing-attribute -->
-          <li><a>Submenu 1</a></li>
-          <!-- svelte-ignore a11y-missing-attribute -->
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </li>
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <li><a>Item 3</a></li>
+        </li>
+      {/each}
     </ul>
   </div>
-  <div class="navbar-end">
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <a class="btn">Get started</a>
-  </div>
 </div>
+
+<style>
+  .act {
+    color: #fbbf24;
+  }
+</style>
