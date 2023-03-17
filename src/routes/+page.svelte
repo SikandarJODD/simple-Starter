@@ -16,7 +16,7 @@
 <main>
   <PageHero />
   <PageConnect />
-  <PopUp />
+  <!-- <PopUp /> -->
 </main>
 
 <!-- <style lang="postcss"> -->
