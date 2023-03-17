@@ -1,6 +1,7 @@
 <script>
   import PageConnect from "$lib/components/MainPage/PageConnect.svelte";
   import PageHero from "$lib/components/MainPage/PageHero.svelte";
+  import PopUp from "../lib/components/PopUp.svelte";
 </script>
 
 <svelte:head>
@@ -15,6 +16,7 @@
 <main>
   <PageHero />
   <PageConnect />
+  <PopUp />
 </main>
 
 <!-- <style lang="postcss"> -->

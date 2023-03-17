@@ -77,10 +77,10 @@
       </div>
     </div>
     <div
-      class="flex flex-wrap -m-4 border-2 border-slate-700 rounded-lg px-2 shadow-2xl shadow-sky-400"
+      class="flex flex-wrap justify-center -m-4 border-2 border-slate-700 rounded-lg px-2 shadow-2xl shadow-sky-400"
     >
       {#each studProData as item}
-        <div class="xl:w-1/4 md:w-1/2 px-3 py-7 ">
+        <div class="xl:w-1/5 md:w-1/4 px-3 py-7 w-96 ">
           <div class=" p-6 rounded-lg  card_obj">
             <img
               class="h-40 rounded w-full object-cover object-center mb-5"

@@ -1,0 +1,13 @@
+<section class="fixed top-1/2 right-0">
+  <div class="stack">
+    <div class="text-center border border-base-content card w-36 bg-base-100">
+      <div class="card-body">A</div>
+    </div>
+    <div class="text-center border border-base-content card w-36 bg-base-100">
+      <div class="card-body">B</div>
+    </div>
+    <div class="text-center border border-base-content card w-36 bg-base-100">
+      <div class="card-body">C</div>
+    </div>
+  </div>
+</section>

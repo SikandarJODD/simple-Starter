@@ -1,4 +1,5 @@
 <script>
+  import { fade, scale } from "svelte/transition";
   import { page } from "$app/stores";
   $: routeId = $page.route.id;
 
@@ -21,16 +22,29 @@
     },
   ];
   $: lenheight = 0;
-  // $: console.log(lenheight);
+  $: TotalVal = 0;
+  let display = "hidden transition-all duration-300";
+  let handleMouse = (e) => {
+    TotalVal = Math.floor(e.pageY - lenheight);
+    if (TotalVal <= 50) {
+      // console.log(display, TotalVal);
+      display = "flex transition-all duration-300";
+    } else if (TotalVal > 50) {
+      // console.log(display, TotalVal);
+      display = "hidden transition-all duration-300";
+    }
+  };
 </script>
+
+<svelte:body on:mousemove={handleMouse} />
 
 <svelte:window bind:scrollY={lenheight} />
 <div
   class=" z-10 navbar sticky top-0 rounded-md w-[90%] transition-all duration-300  m-auto {Math.floor(
     lenheight
   ) > 120
-    ? '  backdrop-blur-md bg-[#129afbab] border-2 border-gray-900 md:w-[60%]  top-3 transition-all duration-200'
-    : ''}  "
+    ? 'backdrop-blur-md bg-[#129afbab] border-2 border-gray-900 md:w-[60%]  top-3 transition-all duration-200'
+    : ' '}  "
 >
   <div class="navbar-start">
     <div class="dropdown">
