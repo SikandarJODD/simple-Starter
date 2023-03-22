@@ -43,7 +43,7 @@
   class=" z-10 navbar sticky top-0 rounded-md w-[90%] transition-all duration-300  m-auto {Math.floor(
     lenheight
   ) > 120
-    ? 'backdrop-blur-md bg-[#129afbab] border-2 border-gray-900 md:w-[60%]  top-3 transition-all duration-200'
+    ? 'backdrop-blur-md bg-[#129afbab] border-2 border-gray-900 md:w-[50%] nv-h  top-3 transition-all duration-200'
     : ' '}  "
 >
   <div class="navbar-start">
@@ -86,8 +86,11 @@
     </div>
     <a
       href="/"
-      class="btn btn-ghost normal-case text-xl bg-base-200 md:bg-slate-700  md:text-2xl font-bold text-sky-500"
-      >Pro - Stud</a
+      class="btn btn-ghost normal-case text-xl bg-base-200 md:bg-slate-700 text-sky-400   font-bold   {Math.floor(
+        lenheight
+      ) > 150
+        ? '   md:text-slate-900 transition-all duration-150 md:text-[1.4rem] md:bg-transparent'
+        : ' '} ">Pro-Stud</a
     >
   </div>
   <div class="navbar-center hidden lg:flex">
@@ -96,8 +99,8 @@
         <li>
           <a
             href={nav.link}
-            class="btn btn-ghost {Math.floor(lenheight) > 150
-              ? '  text-black transition-all duration-150'
+            class="transition-all duration-150   {Math.floor(lenheight) > 150
+              ? '  text-black transition-all duration-150 text-md'
               : ''} "
             class:act={routeId === nav.link}>{nav.name}</a
           >
@@ -112,6 +115,11 @@
     color: hsl(224, 96%, 22%);
     border: 2px solid #03256e;
     background: #0131531e;
-    margin: 0 10px;
+    padding: 0px 10px !important;
+    margin: 0 5px;
+  }
+  .nv-h {
+    height: 30px;
+    min-height: 60px;
   }
 </style>

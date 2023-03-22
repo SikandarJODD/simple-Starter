@@ -1,66 +1,19 @@
 <script>
-  let studProData = [
-    {
-      title: "Rahul Wagh",
-      img: "https://i.pinimg.com/564x/34/ac/14/34ac14141d8a9811a651c50e23aef2d4.jpg",
-      projName: "VC Funders",
-    },
-    {
-      title: "Aditya Karle",
-      img: "https://i.pinimg.com/564x/63/6a/09/636a09d9c32d34f9b4037e1fac5db6cf.jpg",
-      projName: "City-Scape AR",
-    },
-    {
-      title: "Priya Pal",
-      img: "https://i.pinimg.com/564x/ad/ba/6d/adba6d6b6f7192aaf60f50372f00b9d8.jpg",
-      projName: "Dream Dress",
-    },
-    {
-      title: "Saloni Maheshwari",
-      img: "https://i.pinimg.com/564x/57/3c/af/573cafd440c1dd21f462ff7339ccaa19.jpg",
-      projName: "Mumbai Drvizzz",
-    },
-    {
-      title: "Rutika Bhuimbar",
-      img: "https://i.pinimg.com/564x/f3/68/ac/f368aca0fe4f7bb47c982a1bf1062e2b.jpg",
-      projName: "Realz Lifo",
-    },
-    {
-      title: "Kuldeep Jha",
-      img: "https://i.pinimg.com/564x/0a/86/9a/0a869a26132aa2982c57b958e71d80b9.jpg",
-      projName: "Kool-Berg ",
-    },
-    {
-      title: "Abhishek Gopale",
-      img: "https://i.pinimg.com/564x/0a/c3/f6/0ac3f68e2c8b88489400978f98c3c77d.jpg",
-      projName: "Defi - Sefi",
-    },
-    {
-      title: "Roshan John",
-      img: "https://i.pinimg.com/564x/4d/7f/24/4d7f24025c9f964960747da8a64d8ceb.jpg",
-      projName: "Fuse Flicker",
-    },
-    {
-      title: "Yash Kulkarni",
-      img: "https://i.pinimg.com/564x/05/de/31/05de315a05b6b81880ca5aefdeac762e.jpg",
-      projName: "Ctiy Lights",
-    },
-    {
-      title: "Raj Setti",
-      img: "https://i.pinimg.com/564x/af/69/ab/af69ab11f4525ccc68d07a9ef0ccb589.jpg",
-      projName: "Vision Latent",
-    },
-    {
-      title: "Naman Gupta",
-      img: "https://i.pinimg.com/564x/be/8d/18/be8d1804bb1ffd71e8aef9ea37540cb5.jpg",
-      projName: "Prico Velas",
-    },
-    {
-      title: "Kaushal Sham",
-      img: "https://i.pinimg.com/564x/35/ca/ed/35caed9ed16376c0a35e93354952759e.jpg",
-      projName: "Monoco - Matic",
-    },
-  ];
+  import supabase from "$lib/db";
+  import { onMount } from "svelte";
+  $: backData = [];
+  onMount(() => {
+    getData();
+  });
+  let getData = async () => {
+    let { data, error } = await supabase
+      .from("studConnect")
+      .select("showcase_img,first_name,project_name");
+    backData = data;
+    if (data) {
+      return data;
+    }
+  };
 </script>
 
 <section class="text-gray-600 body-font ">
@@ -76,28 +29,37 @@
         <div class="h-[2px] w-full bg-[#0c2079] rounded-md" />
       </div>
     </div>
+
     <div
       class="flex flex-wrap justify-center -m-4 border-2 border-slate-700 rounded-lg px-2 shadow-2xl shadow-sky-400"
     >
-      {#each studProData as item}
-        <div class="xl:w-1/5 md:w-1/4 px-3 py-7 w-96 ">
-          <div class=" p-6 rounded-lg  card_obj">
-            <img
-              class="h-40 rounded w-full object-cover object-center mb-5"
-              src={item.img}
-              alt="content"
-            />
-            <h3
-              class="tracking-widest text-blue-500 font-semibold text-xs  font-mono title-font"
-            >
-              {item.title}
-            </h3>
-            <h2 class="text-lg text-gray-900 font-mono   title-font crd-title">
-              {item.projName}
-            </h2>
+      {#await getData()}
+        <p />
+      {:then data}
+        {#each data as item}
+          <div class="xl:w-1/5 md:w-1/4 px-3 py-7 w-96 ">
+            <div class=" p-6 rounded-lg  card_obj">
+              <img
+                class="h-40 rounded w-full object-cover object-center mb-5"
+                src={item.showcase_img}
+                alt="content"
+              />
+              <h3
+                class="tracking-widest text-blue-500 font-semibold text-xs  font-mono title-font"
+              >
+                {item.first_name}
+              </h3>
+              <h2
+                class="text-lg text-gray-900 font-mono   title-font crd-title"
+              >
+                {item.project_name}
+              </h2>
+            </div>
           </div>
-        </div>
-      {/each}
+        {/each}
+      {:catch error}
+        <p style="color: red">{error.message}</p>
+      {/await}
     </div>
   </div>
 </section>
@@ -116,6 +78,6 @@
   }
   .card_obj:hover .crd-title {
     transition: all 0.3s ease;
-    color: rgb(5, 87, 209);
+    color: #0557d1;
   }
 </style>
