@@ -27,11 +27,12 @@
     "https://i.pinimg.com/564x/be/8d/18/be8d1804bb1ffd71e8aef9ea37540cb5.jpg",
     "https://i.pinimg.com/564x/35/ca/ed/35caed9ed16376c0a35e93354952759e.jpg",
   ];
-
+  let getRandom = () => {
+    return Math.floor(Math.random() * 11);
+  };
   let uploadData = async () => {
-    let mt = Math.floor(Math.random() * 11);
     if (projectData.showcase_img === "") {
-      projectData.showcase_img = studProData[mt];
+      projectData.showcase_img = studProData[getRandom()];
     }
     const { data, error } = await supabase
       .from("studConnect")
