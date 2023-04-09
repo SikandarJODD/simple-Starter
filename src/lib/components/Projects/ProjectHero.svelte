@@ -5,10 +5,11 @@
   onMount(() => {
     getData();
   });
+  // .select("showcase_img,first_name,project_name");
   let getData = async () => {
     let { data, error } = await supabase
       .from("studConnect")
-      .select("showcase_img,first_name,project_name");
+      .select("*");
     backData = data;
     if (data) {
       return data;
@@ -37,25 +38,27 @@
         <p />
       {:then data}
         {#each data as item}
-          <div class="xl:w-1/5 md:w-1/4 px-3 py-7 w-96 ">
-            <div class=" p-6 rounded-lg  card_obj">
-              <img
-                class="h-40 rounded w-full object-cover object-center mb-5"
-                src={item.showcase_img}
-                alt="content"
-              />
-              <h3
-                class="tracking-widest text-blue-500 font-semibold text-xs  font-mono title-font"
-              >
-                {item.first_name}
-              </h3>
-              <h2
-                class="text-lg text-gray-900 font-mono   title-font crd-title"
-              >
-                {item.project_name}
-              </h2>
+            <div class="xl:w-1/5 md:w-1/4 px-3 py-7 w-96 ">
+              <div class=" p-6 rounded-lg  card_obj">
+                <a href="/projects/{item.id}">
+                  <img
+                  class="h-40 rounded w-full object-cover object-center mb-5"
+                  src={item.showcase_img}
+                  alt="content"
+                />
+                </a>
+                <h3
+                  class="tracking-widest text-blue-500 font-semibold text-xs  font-mono title-font"
+                >
+                  {item.first_name}
+                </h3>
+                <h2
+                  class="text-lg text-gray-900 font-mono   title-font crd-title"
+                >
+                  {item.project_name}
+                </h2>
+              </div>
             </div>
-          </div>
         {/each}
       {:catch error}
         <p style="color: red">{error.message}</p>
